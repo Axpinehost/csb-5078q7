@@ -1,0 +1,14 @@
+# .htaccess main domain to subfolder redirect
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^(www.)?hostaxpinemc.tk$
+RewriteCond %{REQUEST_URI} !^/whmcs/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ /whmcs/$1
+
+RewriteCond %{HTTP_HOST} ^(www.)?hostaxpinemc.tk$
+
+RewriteRule ^(/)?$ whmcs/index.php [L]
